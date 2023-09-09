@@ -14,4 +14,12 @@
             </div>
         </div>
     </div>
+
+    <a class="btn btn-primary" href="{{ route('teamlist') }}" >Add a team</a>
+
+    <a class="btn btn-primary"href="{{ route('matchlist') }}" >Add a match</a>
+
+    <a class="btn btn-primary"href="{{ route('scorelist') }}" >Add a score</a> 
+
+    <a class="btn btn-primary"href="{{ route('scores.index') }}" >  score list</a> 
 </x-app-layout>

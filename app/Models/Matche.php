@@ -25,8 +25,16 @@ class Matche extends Model
     {
         return $this->belongsToMany(Team::class);
     }
+    public function teamOne()
+    {
+        return $this->belongsTo(Team::class, 'id_t1');
+    }
 
-    // Relationship to scores (a match has many scores)
+    public function teamTwo()
+    {
+        return $this->belongsTo(Team::class, 'id_t2');
+    }
+    
     public function scores()
     {
         return $this->hasMany(Score::class);

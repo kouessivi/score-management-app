@@ -9,18 +9,18 @@ class Score extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'match_id', 
-        'team_id',
+        'mat_id', 
+        't_id',
          'score'];
 
          public function team()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Team::class ,'t_id');
     }
 
     // Relationship with matches (a score belongs to a match)
     public function match()
     {
-        return $this->belongsTo(Matche::class);
+        return $this->belongsTo(Matche::class,'mat_id');
     }
 }

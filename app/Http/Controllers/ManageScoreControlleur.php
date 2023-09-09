@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Matche;
 use Illuminate\Http\Request;
-
+use App\Models\Team;
+use App\Models\Score;
 class ManageScoreControlleur extends Controller
 {
     //
@@ -28,16 +29,19 @@ public function create()
 
 public function store(Request $request)
 {
-     
-
-    Score::create([
-        'mat_id' => $request->mat_id,
-        't_id' => $request->t_id,
-        'score' => $request->score,
-        
+    
+    $validated = $request->validate([
+        'mat_id' => 'required|exists:matches,id',  
+        't_id' => 'required|exists:teams,id',    
+        'score' => 'required|integer',             
+         
     ]);
 
     
+    Score::create($validated);
+
+ 
+    return redirect()->route('scores.index')->with('success', 'Score ajouté avec succès.');
 }
 public function edit($id)
 {

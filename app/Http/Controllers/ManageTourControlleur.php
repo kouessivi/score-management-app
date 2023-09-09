@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Matche;
 use App\Models\Team;
+use App\Models\Score;
 class ManageTourControlleur extends Controller
 {
     //
 
     public function index()
 {
-    return view('welcome');
+    $scores = Score::all();
+    return view('welcome', ['scores' => $scores]);
 }
 public function showMatch($id)
 {

@@ -15,6 +15,8 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <a href="{{ route('teamlist') }}">ajout d'une equipes</a>
                 </div>
             </div>
         </div>
